@@ -68,7 +68,6 @@ createpr() {
 	read BASE
 	gh pr create --title "$TITLE" --body "$BODY" --base "$BASE";
 }
-export HOMEBREW_GITHUB_API_TOKEN=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
 
 . /usr/local/opt/asdf/libexec/asdf.sh
 
