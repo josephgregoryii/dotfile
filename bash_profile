@@ -3,6 +3,12 @@
 # ----------------
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+
+# -----------------------------
+# Suppress default notification 
+# -----------------------------
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # -------
 # Exports
 # -------
@@ -23,20 +29,24 @@ alias ..="cd ../"
 alias vim="nvim"
 alias vbp="nvim ~/.bash_profile"
 alias vconf="nvim ~/.config/nvim/init.vim"
+alias kconf="nvim ~/.config/kitty/kitty.conf"
+alias bprof="nvim ~/Developer/dotfile/bash_profile"
+alias cat="bat"
 
 # --------
 # Repo Nav
 # Aliases 
 # --------
-alias docs="cd ~/Documents/external/docs-website && echo Docs Repo && nvm use && gf"
-alias devsite="cd ~/Documents/external/developer-website && echo Dev Repo && nvm use && gf"
-alias theme="cd ~/Documents/external/gatsby-theme-newrelic && echo Theme Repo && nvm use && gf"
-alias quickstarts="cd ~/Documents/external/newrelic-quickstarts && echo Quickstarts Repo && gf"
-alias io="cd ~/Documents/external/instant-observability-website && echo IO && nvm use && gf"
-alias snake="cd ~/Documents/personal/starter-snake-typescript && echo BattleSnakes Repo && nvm use && gf"
-alias nr1_repo="cd ~/Documents/nr1/ && echo NR1 Repo"
-alias internal="cd ~/Documents/internal"
-alias external="cd ~/Documents/external"
+DEV_PATH_EXT="~/Developer/newrelic-external"
+DEV_PATH_INT="~/Developer/newrelic-internal"
+alias quickstarts="cd ${DEV_PATH_EXT}/newrelic-quickstarts && echo Quickstarts Repo && gf"
+alias io="cd ${DEV_PATH_EXT}/instant-observability-website && echo IO && nvm use && gf"
+alias theme="cd ${DEV_PATH_EXT}/gatsby-theme-newrelic && echo Theme && nvm use && gf"
+alias external="cd ${DEV_PATH_EXT}"
+alias internal="cd ${DEV_PATH_INT}"
+alias marketplace="cd ${DEV_PATH_INT}/marketplace && echo marketplace && nvm use && gf"
+alias shared-component="cd ${DEV_PATH_INT}/shared-component-installator && echo shared-component-installator && nvm use && gf"
+alias cat-service="cd ${DEV_PATH_INT}/catalog-service-elixir/ && echo catalog-service"
 
 # -----------
 # Git Aliases
@@ -69,6 +79,9 @@ createpr() {
 	gh pr create --title "$TITLE" --body "$BODY" --base "$BASE";
 }
 
-. /usr/local/opt/asdf/libexec/asdf.sh
-
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+# ---------------
+# Bash Completion 
+# ---------------
+if [ -f /sw/etc/bash_completion ]; then
+   . /sw/etc/bash_completion
+fi
