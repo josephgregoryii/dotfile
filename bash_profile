@@ -30,8 +30,9 @@ alias vim="nvim"
 alias vbp="nvim ~/.bash_profile"
 alias vconf="nvim ~/.config/nvim/init.vim"
 alias kconf="nvim ~/.config/kitty/kitty.conf"
-alias bprof="nvim ~/Developer/dotfile/bash_profile"
+alias bconf="nvim ~/Developer/dotfile/bash_profile"
 alias cat="bat"
+alias nuans="nvm use && npm start"
 
 # --------
 # Repo Nav
@@ -39,14 +40,16 @@ alias cat="bat"
 # --------
 DEV_PATH_EXT="~/Developer/newrelic-external"
 DEV_PATH_INT="~/Developer/newrelic-internal"
-alias quickstarts="cd ${DEV_PATH_EXT}/newrelic-quickstarts && echo Quickstarts Repo && gf"
-alias io="cd ${DEV_PATH_EXT}/instant-observability-website && echo IO && nvm use && gf"
-alias theme="cd ${DEV_PATH_EXT}/gatsby-theme-newrelic && echo Theme && nvm use && gf"
+alias quick="cd ${DEV_PATH_EXT}/newrelic-quickstarts && echo Quickstarts Repo && gf"
 alias external="cd ${DEV_PATH_EXT}"
 alias internal="cd ${DEV_PATH_INT}"
-alias marketplace="cd ${DEV_PATH_INT}/marketplace && echo marketplace && nvm use && gf"
-alias shared-component="cd ${DEV_PATH_INT}/shared-component-installator && echo shared-component-installator && nvm use && gf"
-alias cat-service="cd ${DEV_PATH_INT}/catalog-service-elixir/ && echo catalog-service"
+alias mad="cd ${DEV_PATH_INT}/marketplace && echo marketplace && nvm use && gf"
+alias sci="cd ${DEV_PATH_INT}/shared-component-installator && echo shared-component-installator && nvm use && gf"
+alias fconfr="cd ${DEV_PATH_INT}/shared-component-framework-configs && echo shared-component-framework-configs && nvm use && gf"
+alias cs="cd ${DEV_PATH_INT}/catalog-service-elixir/ && echo catalog-service && gf"
+alias nr1-install="cd ${DEV_PATH_INT}/nr1-install-newrelic/ && echo nr1-install-newrelic && nvm use && gf"
+alias tp="cd ${DEV_PATH_INT}/test-pack/ && echo test-pack && nvm use && gf"
+alias scfc="cd ${DEV_PATH_INT}/shared-component-framework-configs/ && echo shared-component-framework-configs && nvm use && gf"
 
 # -----------
 # Git Aliases
@@ -58,7 +61,15 @@ alias gf="git fetch && git pull"
 alias gpup="git push --set-upstream origin $1"
 alias prw='gh pr list | fzf | cut -f1 | xargs gh pr view -w'
 alias gp='git push'
+alias gpnv='git push --no-verify'
+alias gcm='git commit -m'
+alias gcmnv='git commit --no-verify -m'
 alias checkout='git checkout'
+
+# -----------------
+# New Relic Aliases
+# -----------------
+alias vault-login='newrelic-vault us login -method=ldap username=$USER method=push'
 
 
 eval $(thefuck --alias)
